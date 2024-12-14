@@ -1,0 +1,582 @@
+Oracle tutorial:
+
+Oracle data types
+
+1. NUMERIC
+	number(8)
+	number(8,2)
+	
+2. Char
+	char
+	varchar
+	varchar2
+	
+3. DATE
+	date      09-mar-2024
+	datetime
+
+======================================
+SQL DDL DML DRL TCL DCL
+
+DDL 			DML				DRL				TCL				DCL
+Create			Insert			Select			Commit			Grant
+Alter			Update							Rollback		Revoke
+Rename			Delete							Savepoint
+Truncate		Merge
+Drop
+
+To insert data to a table after truncating the table and modifying the table
+	insert into customer(select * from customer_bkp);
+CREATE TABLE customer_bkp
+    AS
+        SELECT
+            *
+        FROM
+            customer;
+Truncate all the data in customer table and make necessary modification.
+TRUNCATE TABLE customer;
+
+ALTER TABLE customer MODIFY
+    mobile varchar2(15);
+    
+alter table customer
+modify cust_id number(9);
+
+
+insert into customer(select * from customer_bkp);
+
+
+Drop customer backup table after you have copied data to main table.
+drop table customer_bkp;
+
+alter table customer
+rename column mobile to mobile_no;
+
+alter table customer
+rename column dob to date_of_birth;
+
+rename customer to customer_1;
+
+altering a table to add primary key.
+alter table city add primary key (city_id);
+
+
+
+[Constraints In Oracle]
+=============
+Data validation before inserting the data into the table is called constraints
+
+CREATE TABLE CUSTOMER(
+    cust_id   NUMBER(6) PRIMARY KEY,
+    cust_name VARCHAR2(30) NOT NULL,
+    mobile_no NUMBER(10) UNIQUE CHECK ( length(mobile_no) = 10 ), --check for length in column
+    age       NUMBER(3) check(age>=18), --check if number is greater or equal to 18
+    city number(4) reference city(city_id) ); --check for reference table
+	
+	composite key
+	cust_id+mobile_no --> Primary key(cust_id,mobile_no)
+	
+integrity constriant will be violated if you are trying to delete a record on a table referenced
+in parent table. You will have to delete all records referencing the column before you can 
+delete the record in child table. This is parent child relation constraint.
+	
+You can delete using on delete cascade. but you have to have that on when creating a table
+on delete cascade.
+
+create table customer (
+    cust_id number(10) primary key,
+    cust_name varchar2(30) not null,
+    mobile_no number(10) unique check(length(mobile_no)=10),
+    age number(3) check(age >= 18),
+    city_id number(4) references city(city_id) ON DELETE CASCADE --Here we added delete constraint
+)
+
+You can alter the table and remove the contraint and then add the 'ON DELETE CASCADE' If table
+already created.
+
+first find the constraint, then apply alter drop statement.
+select * from all_constraints where owner ='HR' and table_name = 'CUSTOMER';
+=========
+alter table customer
+drop constraint SYS_C008327;
+
+Then apply below code.
+ALTER table customer
+add constraint city_fk
+foreign key(city_id)
+references city(city_id)
+on delete cascade;
+
+To check for metadata for a table, use the below query to do so:
+select * from all_tables where owner = 'HR';
+
+Checking all the clumns:
+select * from all_tab_columns where owner = 'HR' and column_name = 'SALARY';
+
+SELECT A PARTICULAR TABLE AND ITS COLUMN:
+SELECT a.owner, a.constraint_type, b.table_name, b.column_name, from all_constraints a,
+all_cons_colummns b where a.constraints_name=b.constraint_name and a.owner = 'HR' and
+a.table_name = 'CUSTOMER';
+
+Creating composite key. if the table is already created, drop table and make changes, or alter
+table. If the table is referenced, you cannot delete the table that is referenced. 
+You must first delete the parent table where it is referenced first.
+
+================
+SELECT statement
+================
+
+Concatnating a column you can use the concat() function or || symbol.
+select employee_id as associate_id, concat(concat(first_name, ' '), last_name) as full_name, 
+email, hire_date, salary, department_id from employees;
+
+
+--Column calculation
+select employee_id associate_id, concat(concat(first_name, ' '), last_name) as full_name, 
+email, hire_date, salary, salary+1000 new_salary, department_id from employees;
+
+select * from employees where salary not between  5000 and 7400;
+
+select * from employees where deparTment_id IN(30,60);
+
+
+select * from employees where salary=  5000 and salary >7400;
+
+select * from employees where salary=  5000 or (salary >7400 and salary <= 9000);
+
+Rownum is used to number the records in oracle.
+Rowid is the unique storage memory for every record in Oracle. They are unique.
+
+Table alais is written like this e.* from employees e;
+select rownum, rowid, e.* from employees e;
+or
+select rownum, rowid, employees.* from employees;
+rownum does not work with = symbol or > symbol.
+select * from employees where rownum <=5;
+
+
+Column alais is written like this first_name as name. or first_name name or first_name as
+"last name" if you want to add a space.
+select first_name as name, employee_id as id from employees;
+
+Character function can b used to collect the year or month e.g to_char(column, conversion string)
+e.g to_char(hire_date, 'yyyy');
+select employee_id, hire_date, to_char(hire_date, 'yyyy'),to_char(hire_date, 'dd'),
+to_char(hire_date, 'mm'),to_char(hire_date, 'mon'),to_char(hire_date, 'Month'),
+to_char(hire_date, 'day'),to_char(hire_date, 'Year')from employees;
+
+
+IIF(SALARY <= 5000, SALARY+(SALARY*0.3),
+ IIF(SALARY > 5000 AND SALARY <= 1000, SALARY+(SALARY*0.2), 
+IIF(SALARY > 10000, SALARY+(SALARY*0.1))))
+
+
+Using the case logic:
+SELECT EMPLOYEE_ID, SALARY FROM CORE.T_EMPLOYEES
+MINUS
+SELECT EMPLOYEE_ID,
+CASE WHEN SALARY <=10000 THEN SALARY+(SALARY*0.2) 
+ELSE SALARY+(SALARY*0.1) END FROM HR.EMPLOYEES;
+
+Joins in Oracle
+===============
+Equi Join - An equi join is a type of join that combines tables 
+based on matching values in specified columns.
+
+Non-Equi Join - THe none equi joins is such a join which match column values
+from different tables based on an inequality
+(instead of the equal sign like >,<, >-, !=) OPERATOR
+
+Types of Equi join:
+===================
+Inner Join
+Left outer Join
+Right outer Join
+Full outer Join
+
+========================
+Non-Equi Join < > >= <= != =
+
+
+--Implicit method
+select
+a.cust_id,
+a.cust_name,
+a.mob_no,
+a.email,
+a.country_id,
+b.country_name
+from customer a, country b
+where a.country_id=b.country_id and b.country_name='INDIA';
+
+
+--ANSI Method:
+select
+a.cust_id,
+a.cust_name,
+a.mob_no,
+a.email,
+a.country_id,
+b.country_name
+from customer a inner join country b
+ON a.country_id=b.country_id and b.country_name='INDIA';
+
+--left join you can use (+) at the end to have a left join
+select
+a.cust_id,
+a.cust_name,
+a.mob_no,
+a.email,
+a.country_id,
+b.country_name
+from customer a, country b
+where a.country_id=b.country_id(+);
+
+select
+a.cust_id,
+a.cust_name,
+a.mob_no,
+a.email,
+a.country_id,
+b.country_name
+from customer a left JOIN country b
+on a.country_id=b.country_id;
+
+--Right outer join implicit you take the (+) symbol and place it on the right hand side.
+select
+a.cust_id,
+a.cust_name,
+a.mob_no,
+a.email,
+a.country_id,
+b.country_name
+from customer a, country b
+where a.country_id(+)=b.country_id;
+
+select
+a.cust_id,
+a.cust_name,
+a.mob_no,
+a.email,
+a.country_id,
+b.country_name
+from customer a right JOIN country b
+on a.country_id=b.country_id;
+
+--Full outer join using implicit:
+select
+a.cust_id,
+a.cust_name,
+a.mob_no,
+a.email,
+a.country_id,
+b.country_name
+from customer a, country b
+where a.country_id(+)=b.country_id
+union
+select
+a.cust_id,
+a.cust_name,
+a.mob_no,
+a.email,
+a.country_id,
+b.country_name
+from customer a, country b
+where a.country_id=b.country_id(+);
+
+select
+a.cust_id,
+a.cust_name,
+a.mob_no,
+a.email,
+a.country_id,
+b.country_name
+from customer a Full JOIN country b
+on a.country_id=b.country_id;
+
+
+
+Sub Queries | Course Day 8
+============================
+select (select)
+select (select)
+insert (select)
+
+
+
+Types of subquery:
+1. Single sub query
+2. Multi row sub query
+3. Multi column sub query
+4. Co-related sub query
+
+--single row sub query. returns one row use only relation operatiors = <> != <= >= 
+select a.* from employees a where salary =(select max(salary) from employees);
+
+Multi row sub query when you want to return more than one row:
+IN, NOT INT, >ANY, <ANY, >ALL, <ALL
+
+Multi column sub query
+--Single row sub query
+select * from employees where salary =(select max(salary) from employees);
+
+select * from employees where salary >= (select round(avg(salary)) from employees);
+
+---Multirow sub query you use the key word IN, Not IN, <ANY, >ANY, <ALL, >ALL
+select * from employees where salary IN(select max(salary) from employees group by department_id);
+
+--Multirow Multi column sub query.
+select * from employees where (department_id,salary)
+IN(select department_id,max(salary) from employees group by department_id)
+order by department_id;
+
+select * from employees where department_id > ANY(30,60,90) order by department_id;
+
+select * from employees where department_id > ANY
+(select department_id from departments where department_name in('Purchasing','IT','Executive')) order by department_id;
+
+
+select * from employees where department_id < ANY (30,60,90) order by department_id;
+
+select * from employees where department_id < ALL(30,60,90) order by department_id;
+
+select * from employees where department_id > ALL(30,60,90) order by department_id;
+
+-- Whose employee job is the same as the job of  Stephen
+select job_id from employees where first_name = 'Stephen';
+select * from employees where job_id = (select job_id from employees where first_name=initcap('stephen'));
+
+select distinct job_id from employees where first_name ='James';
+select * from employees where job_id = (select distinct job_id from employees where first_name='James');
+
+select * from employees where job_id IN (select job_id from employees where first_name='Steven');
+
+--Whose salary is more than the max salary of the job is 'Sales Manager;
+select * from jobs;
+select job_id from jobs where job_title = 'Sales Manager';
+
+select * from employees where salary >(
+select max(salary) from employees where job_id = (select job_id from jobs where job_title = 'Sales Manager'));
+
+--Whose employee job is same as the job of Ellen and who are earning Salary more than Ellen salary
+select * from employees where job_id = (select job_id from employees where first_name= 'Ellen')
+and salary > (select salary from employees where first_name = 'Ellen');
+
+--Display the senior employee among all the employees.
+select * from employees where hire_date =(select min(hire_date) from employees);
+
+--Find the second higest salary from the Employee table
+
+--First Max salary
+select max(salary) from employees;
+
+--Second Max Salary
+select max(salary) from employees where salary < (select max(salary) from employees);
+
+--Second Max Salary employee
+select * from employees where salary =(
+select max(salary) from employees where salary < (select max(salary) from employees));
+
+--Sum of Salary of Jobs if the sum of salary of jobs are more than the sum of salary of the job is 'CLERK'?
+select * from employees;
+select job_id, sum(salary) from employees group by job_id having sum(salary) >
+(select sum(salary) from employees where job_id like '%CLERK%');
+
+-- select record from department where no employee are working
+select * from employees;
+select * from departments;
+
+select * from departments where department_id not in(
+select department_id from employees where department_id is not null);
+
+select
+d.department_id,
+d.department_name
+from employees e right join departments d
+on e.department_id=d.department_id AND e.department_id is null;
+
+ select * from employees where employee_id in(
+ select manager_id from employees group by manager_id);
+ 
+ select * from employees a where 1 <=(
+ select count(*) from employees b where b.manager_id=a.employee_id);
+ 
+ 
+ 
+ 
+
+
+========================================
+PL/SQL
+========================================
+PL/SQL is nothing but procedural language for SQL.
+IF condition
+	SQLCODE
+ELSE
+	SQLCODE
+	
+Benefits of PL/SQL
+Modularise programming.
+DECLARE
+BEGIN
+EXCEPTION
+END;
+There are two blocks in PL/SQL
+1. Anonymous blocks
+
+2. Named blocks  -- stored as an object in DBA
+
+	PROCEDURE
+	FUNCTION
+	PACKAGE
+	TRIGGER
+	
+1. Anonymous Block
+==============================
+DECLARE
+	--Variable declaration   --Optional if you do not have any Variable
+BEGIN
+	
+	--Executable statement
+	EXCEPTION
+	--Handle Excepiton 			--Exception handling Optional
+
+End;
+/
+=============================
+assigning a value := in PL/SQL
+
+declaring a vaariable:
+num2 number(10) 
+assigning value to the vaariable
+num1 number(10) := 19;
+
+You must use the : and = symbol to assgin a variable. You must also close the statement with ;
+The declare, begin do not require the close statement using ;
+
+To request input from a user you must use the & symbol with variable name.
+e.g num2 number(10) := &num2;
+You must use precision and scale if you have to add a float point number because PL/SQL rounds
+the total when adding.
+
+To display result in SQL output use: SET SERVEROUTPUT ON;
+
+--Sample PL/SQL code:
+declare
+--adding a decimal value, you must insert the precision and scale if not PL/SQL will round the number
+num1 number(10,2) := &num1;
+num2 number(10,2) := &num2;
+result number(10,2);
+--num1 number(10) :20.5; --will round the number to 21
+--num2 number(10) :10.5 will round the number to 11
+begin
+result := (num1+num2);
+dbms_output.put_line('The addition of ' || num1 || ' and ' || num2 || ' is equal to: '||result);
+end;
+	
+	
+
+DECLARE
+num1 NUMBER(10):= 9.5;
+num2 NUMBER(10) := 9.5;
+RESULT NUMBER(10);
+BEGIN
+RESULT := (num1+num2);
+dbms_output.put_line('The total of '|| num1 || ' + ' || num2 || ' is equal to '||result);
+
+END;
+/
+
+
+	
+=====
+DAY 3|
+=====
+You can declare a variable and make it constant. You can also make a variable not null
+DECLARE
+num1 CONSTANT NUMBER(10,2):= 0;
+num2 NUMBER(10,2) NOT NULL := 0;
+RESULT NUMBER(10,2);
+
+BEGIN
+--num1 :=20;
+num2 := null;
+RESULT := (num1+num2);
+dbms_output.put_line('The total of '|| num1 || ' + ' || num2 || ' is equal to: '||result);
+
+END;
+
+Using a select statement, you will want to declare a varaible to return the data or value.
+e.g
+declare
+varaiable name <v_cust_name varchar2(20)
+begin
+select cust_name into v_cust_name from customer where cust_id=100; - stores into v_cust_name
+END;
+To select more than one table you have to use CURSOR or bulk select.
+
+====================================================
+Select statement inside PL/SQL Block Sample:
+DECLARE
+v_ph_no varchar2(20);
+v_job_id varchar2(20);
+begin
+ select phone_number, job_id into v_ph_no, v_job_id from employees where employee_id=102;
+ dbms_output.put_line('The phone number of employee is '|| v_ph_no || ' and job id is '|| v_job_id);
+
+end;
+/
+	
+:= assignment operator.
+ In PL/SQL you cannot write an sql without using a variable to store it. It is always recommended.
+ declare
+ v_phone_no VARCHAR2(100);
+ v_job_id varchar2(100);
+ begin
+ select phone_number, job_id into v_phone_no,v_job_id from employees where employee_id=102;
+ dbms_outout.put_line('The phone number of the empliyee is '||v_phone_no||' and job id is '
+ ||v_job_id);
+ 
+ end;
+	
+====================
+When writing PL/SQL dont hardcode the variable type when assigning.
+e.g
+v_phone_no number(10); instead use v_phone_no <schema.tablename.columnname%type>;
+declare
+v_mobile_no hr.customer1.mobile_no%type;
+begin
+select mobile_no into v_mobile_no from customer1 where cust_id=1000;
+dbms_output.put_line('The mobile number is '||v_mobile_no);
+end;
+
+-- To take a single column you use %type. to collect all columns you use %rowtype.
+declare
+v_mobile_no hr.customer1%rowtype;
+begin
+select mobile_no into v_mobile_no from customer1 where cust_id=1000;
+dbms_output.put_line('The mobile number is '||v_mobile_no);
+end;
+
+--This is the correct syntax
+declare
+vemp2 vemp2%rowtype;
+begin
+select * into vemp2 from customer1 where cust_id=1000;
+dbms_output.put_line(vemp2.cust_name);
+dbms_output.put_line(vemp2.cust_name);
+end;
+
+declare
+v_customer hr.customer1%rowtype;
+begin
+select * into v_customer from customer1 where cust_id=1000;
+dbms_output.put_line('The customer name is '||v_customer.cust_name);
+end;
+	
+	
+	
+	
+
+	
+
