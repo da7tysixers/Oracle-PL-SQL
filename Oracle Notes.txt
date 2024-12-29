@@ -401,7 +401,14 @@ on e.department_id=d.department_id AND e.department_id is null;
  select * from employees a where 1 <=(
  select count(*) from employees b where b.manager_id=a.employee_id);
  
- 
+=====
+VIEWS
+=====
+We have 4 types of views
+View Definition
+View
+Materialized View
+Inline View --> Inline view we cannot create.
  
  
 
