@@ -428,8 +428,62 @@ leading portion of the columns in the composite Index
 Function based indexes - The indexed columns data is based on the calculation e.g where
 upper(first_name) ='JOHN'
 
+Checking if a table have indexes in oracle. Oracle provides a way to check It
+select * from all_indexes where owner='HR' and table_name='EMPLOYEES';
 
- 
+How to create an index on a column:
+create index idx_emp_salary on employees(salary);
+select * from all_ind_columns where index_owner='HR' and table_name='EMPLOYEES';
+
+Index types
+------------
+B-Tree (Default) is the default index. By default created by Oracle.
+Bit map index is another index.
+
+Normal indexes.(By default, Oracle Database creates B-tree indexes)
+
+Bitmap indexes, which store roweds associated with a key value as a Bitmap
+
+Paretitioned indexes, which consist of partitions containing an entry for each value
+that appears in the indexed column(s) of the table.
+
+Function-based indexes, which are based on expressions. They enable you to construct
+queries that evaluate the valye returned by an expression, which in turn may include
+built-in or user-defined functions
+
+Domain indexes, which are instances of an application-specific index of type index
+
+To create an index the table or cluster to be indexed must be in your own schema
+Must have the INDEX object privilege on the table to be indexed
+Must have the create any undex system privilege
+To create an index in another schema, you mush have the create any index system privilege
+
+
+Cardinality = number of distinct record/total number of record
+
+Creating reverse key index
+Create index index_name on table_name(column) reverse;
+create index emp_sal_idx on employees(salary) reverse;
+
+Meta data table - Index
+User_indexes
+user_ind_columns
+user_ind_statistics
+user_ind_expressions
+
+Sytax & example
+Create <UNIQUE|NON UNIQUE> INDEX <index_name>
+ON <table_name> (column_name>,column_name>...)
+TABLESPACE <tablespace_name>;
+
+create index empno_idx on employees(empno);
+
+
+
+
+
+
+
 
 
 ========================================
