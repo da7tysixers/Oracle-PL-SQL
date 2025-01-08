@@ -409,7 +409,26 @@ View Definition
 View
 Materialized View
 Inline View --> Inline view we cannot create.
- 
+
+
+==========
+INDEX
+==========
+Index you can retrieve the data very 
+Unique index or non unique index. Oracle create unique index fro Primary key and unique key 
+Constraints
+
+If non-unique indexes are already present on that column, it will not create new unique index
+for primary key in oracle
+
+Composite - The index can be comprised of single of multiple columns. Composite undexes can
+speed retrieval of data for select statement in which the WHERE clause referebces all or then
+leading portion of the columns in the composite Index
+
+Function based indexes - The indexed columns data is based on the calculation e.g where
+upper(first_name) ='JOHN'
+
+
  
 
 
