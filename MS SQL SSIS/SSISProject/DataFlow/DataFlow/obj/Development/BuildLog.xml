@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>DataFlow</Name>
-    <LastWriteTime>2025-02-06T04:47:55.8078689Z</LastWriteTime>
+    <LastWriteTime>2025-02-06T13:23:29.5519799Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -18,7 +18,17 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>01_ExportToFlatFile.dtsx</Name>
-      <LastWriteTime>2025-02-06T04:47:51.414476Z</LastWriteTime>
+      <LastWriteTime>2025-02-06T04:53:26.7126626Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>02_CharacterMapTrans.dtsx</Name>
+      <LastWriteTime>2025-02-06T13:17:38.6111932Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>03_CopyColumn.dtsx</Name>
+      <LastWriteTime>2025-02-06T13:23:29.529497Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
