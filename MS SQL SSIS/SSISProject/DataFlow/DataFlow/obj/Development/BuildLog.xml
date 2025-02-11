@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>DataFlow</Name>
-    <LastWriteTime>2025-02-06T13:23:29.5519799Z</LastWriteTime>
+    <LastWriteTime>2025-02-11T13:32:20.9043624Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -28,7 +28,47 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>03_CopyColumn.dtsx</Name>
-      <LastWriteTime>2025-02-06T13:23:29.529497Z</LastWriteTime>
+      <LastWriteTime>2025-02-06T13:39:10.8830233Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>04_DerivedColumn.dtsx</Name>
+      <LastWriteTime>2025-02-11T05:06:03.22367Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>05_PercentageSampling.dtsx</Name>
+      <LastWriteTime>2025-02-11T11:45:16.0723469Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>06_RowSampling.dtsx</Name>
+      <LastWriteTime>2025-02-11T11:54:56.9680516Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>07_Sorting.dtsx</Name>
+      <LastWriteTime>2025-02-11T12:22:41.4342882Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>08_UnionAll.dtsx</Name>
+      <LastWriteTime>2025-02-11T12:35:56.9648225Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>09_Multicast.dtsx</Name>
+      <LastWriteTime>2025-02-11T12:55:21.4573259Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>10_ConditionalSplit.dtsx</Name>
+      <LastWriteTime>2025-02-11T13:09:37.4284572Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>11_Aggregate.dtsx</Name>
+      <LastWriteTime>2025-02-11T13:32:17.5290713Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
