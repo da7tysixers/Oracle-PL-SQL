@@ -16,3 +16,10 @@ SELECT 24*4+3 AS MyResponse
 GO
 SELECT 48/4 AS Result
 GO
+
+-------------------
+CREATE TABLE tblSecond 
+(
+	myNumbers int);
+
+ insert into tblFirst values(234), (456),(888)
