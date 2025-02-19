@@ -1,0 +1,4 @@
+C:\Users\da7ty\Study 2024\Oracle Course\MS SQL SSIS\SSISDemos\Outputs\ImportColumnFiles\ChrisGayle.jpg
+C:\Users\da7ty\Study 2024\Oracle Course\MS SQL SSIS\SSISDemos\Outputs\ImportColumnFiles\McGregor.jpg
+C:\Users\da7ty\Study 2024\Oracle Course\MS SQL SSIS\SSISDemos\Outputs\ImportColumnFiles\NateDiaz.jpg
+C:\Users\da7ty\Study 2024\Oracle Course\MS SQL SSIS\SSISDemos\Outputs\ImportColumnFiles\NickDiaz.webp
