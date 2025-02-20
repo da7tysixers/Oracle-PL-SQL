@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\da7ty\\Study 2024\\Oracle Course\\MS SQL SSIS\\SSISProject\\DataFlow\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D3CD4F86-7BF0-4461-94D5-BD475CB53A17}|DataFlow\\DataFlow.dtproj|C:\\Users\\da7ty\\Study 2024\\Oracle Course\\MS SQL SSIS\\SSISProject\\DataFlow\\DataFlow\\13_ImportColumn.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
-      "RelativeMoniker": "D:0:0:{D3CD4F86-7BF0-4461-94D5-BD475CB53A17}|DataFlow\\DataFlow.dtproj|solutionrelative:DataFlow\\13_ImportColumn.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+      "AbsoluteMoniker": "D:0:0:{D3CD4F86-7BF0-4461-94D5-BD475CB53A17}|DataFlow\\DataFlow.dtproj|C:\\Users\\da7ty\\Study 2024\\Oracle Course\\MS SQL SSIS\\SSISProject\\DataFlow\\DataFlow\\CacheTransformation.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{D3CD4F86-7BF0-4461-94D5-BD475CB53A17}|DataFlow\\DataFlow.dtproj|solutionrelative:DataFlow\\CacheTransformation.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3CD4F86-7BF0-4461-94D5-BD475CB53A17}|DataFlow\\DataFlow.dtproj|C:\\Users\\da7ty\\Study 2024\\Oracle Course\\MS SQL SSIS\\SSISProject\\DataFlow\\DataFlow\\17_Lookup.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{D3CD4F86-7BF0-4461-94D5-BD475CB53A17}|DataFlow\\DataFlow.dtproj|solutionrelative:DataFlow\\17_Lookup.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,18 +18,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "13_ImportColumn.dtsx [Design]",
-              "DocumentMoniker": "C:\\Users\\da7ty\\Study 2024\\Oracle Course\\MS SQL SSIS\\SSISProject\\DataFlow\\DataFlow\\13_ImportColumn.dtsx",
-              "RelativeDocumentMoniker": "DataFlow\\13_ImportColumn.dtsx",
-              "ToolTip": "C:\\Users\\da7ty\\Study 2024\\Oracle Course\\MS SQL SSIS\\SSISProject\\DataFlow\\DataFlow\\13_ImportColumn.dtsx [Design]",
-              "RelativeToolTip": "DataFlow\\13_ImportColumn.dtsx [Design]",
+              "Title": "CacheTransformation.dtsx [Design]",
+              "DocumentMoniker": "C:\\Users\\da7ty\\Study 2024\\Oracle Course\\MS SQL SSIS\\SSISProject\\DataFlow\\DataFlow\\CacheTransformation.dtsx",
+              "RelativeDocumentMoniker": "DataFlow\\CacheTransformation.dtsx",
+              "ToolTip": "C:\\Users\\da7ty\\Study 2024\\Oracle Course\\MS SQL SSIS\\SSISProject\\DataFlow\\DataFlow\\CacheTransformation.dtsx [Design]",
+              "RelativeToolTip": "DataFlow\\CacheTransformation.dtsx [Design]",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAO8SURBVEhLtZVNaFxVFMd/891kdJzaNjFJW20pKS6yUgxai6taENJU2uLHypVQQVEIoYguFIqCiN3YheJOt2rowqLSIoiFSv2iFKUobdFCp5PMTF4meW/uPee4eDNvJtMmdNM/HObNefee/7nnf859cDdhZqnO8\u002Btvvjd3cHp6SlWJzfCiqIA3RUQQUUQVEePav9e5dOniu3NffPxRUK82Vke\u002BDV47dnxO2xBR9V7UOdFWSzRseV2JvC6HXpdWnAbLTj/89Gv98vSPwb4jr7yTzeVz/fE6SHceRDRxplKQTqfIZFJksyny2TSFXJoN\u002BTSDhQwDhQyqnm1jo8XJycm3n5h6eSaVzmSSAD1ICEy7BOvBDMwML8bpM\u002BdoNkPM7Pj4I0/P9K\u002Bll8DfAYEZqIEqPLt/D5lMnlyuwMO7dwPs619PL4GKJM6VSFha8Yk1Q48BzcgTLDsaTUe5fD8vPT/FzNEXOXzwQLK3H9nOg6phFtf/87PX\u002BGsxnyzanGoye3icT765wnU3kPi35kJeeGo72s3tFnRFVsXMkhe6cTgxDEQNbLXfAC\u002BGt7XL29NFQk8j9cEQMbr0bW9bbO/X3NijgSq9OqcXq4kZnRPYKn/nZOuVKNFARPFqFEhxaM8YYUtRM1QNrIQITD8\u002BRuTiSfZipFJFnBjrHKBXA0nKUC7mGCrn2VIqsKm0gfI9BbwopcEcGwfz3FfMUy7mGcxn8WLIOi3e06bxCUzh58s1vr1Q4btfK5z5rcJPf87jFbxXnCpeDCeGGIjE\u002BqyFVV3kPBjG7/80\u002BH6\u002BxJmFEmdrJX65XEM8eAFREAET8N7a/\u002B\u002BAQFXQdjZqQDafmAFOFNG49iJKZTGkshhyoxGyFArloW2lkR0TkyM7JiYpDI/fSiDx9RwLtjojszhz3xbXK/xw8QZRFOJcyOhIidnZtx498dmpc\u002B\u002Bf/OocWw990NnbJTCNa9qe6Ox/lxMD2uSGKniNU5h46F52DQ/wQDHDQFrxYcSVa/VOSOgfNC\u002BKFzjy5DbeOLCLV5/ZydH9O3lu73a8gPfgfFwiDJxT6kHEfBBxsx5SrYfcrK\u002BsQaBxcJG4S\u002BJe72betVhsAyLnqQUtFhoR9SCithj/3pZAxRCzuDOSDol9KvFlKGKoj7UCaDllvhFRC6KYKGjRaLre\u002BN1Jdt5x/sIfVKq19p0fT7Gatcnbvs50lx8kWGpRrYUstLNfCCKCPoLko795ZPteJTu26u062PTYsROjW4aHqvWQyAktpzgfW/Xq\u002BVP8fXK6f89dwf/5qMc\u002BgAHYjAAAAABJRU5ErkJggg==",
-              "WhenOpened": "2025-02-19T02:34:06.584Z",
+              "WhenOpened": "2025-02-19T12:44:13.042Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "17_Lookup.dtsx [Design]",
+              "DocumentMoniker": "C:\\Users\\da7ty\\Study 2024\\Oracle Course\\MS SQL SSIS\\SSISProject\\DataFlow\\DataFlow\\17_Lookup.dtsx",
+              "RelativeDocumentMoniker": "DataFlow\\17_Lookup.dtsx",
+              "ToolTip": "C:\\Users\\da7ty\\Study 2024\\Oracle Course\\MS SQL SSIS\\SSISProject\\DataFlow\\DataFlow\\17_Lookup.dtsx [Design]",
+              "RelativeToolTip": "DataFlow\\17_Lookup.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAO8SURBVEhLtZVNaFxVFMd/891kdJzaNjFJW20pKS6yUgxai6taENJU2uLHypVQQVEIoYguFIqCiN3YheJOt2rowqLSIoiFSv2iFKUobdFCp5PMTF4meW/uPee4eDNvJtMmdNM/HObNefee/7nnf859cDdhZqnO8\u002Btvvjd3cHp6SlWJzfCiqIA3RUQQUUQVEePav9e5dOniu3NffPxRUK82Vke\u002BDV47dnxO2xBR9V7UOdFWSzRseV2JvC6HXpdWnAbLTj/89Gv98vSPwb4jr7yTzeVz/fE6SHceRDRxplKQTqfIZFJksyny2TSFXJoN\u002BTSDhQwDhQyqnm1jo8XJycm3n5h6eSaVzmSSAD1ICEy7BOvBDMwML8bpM\u002BdoNkPM7Pj4I0/P9K\u002Bll8DfAYEZqIEqPLt/D5lMnlyuwMO7dwPs619PL4GKJM6VSFha8Yk1Q48BzcgTLDsaTUe5fD8vPT/FzNEXOXzwQLK3H9nOg6phFtf/87PX\u002BGsxnyzanGoye3icT765wnU3kPi35kJeeGo72s3tFnRFVsXMkhe6cTgxDEQNbLXfAC\u002BGt7XL29NFQk8j9cEQMbr0bW9bbO/X3NijgSq9OqcXq4kZnRPYKn/nZOuVKNFARPFqFEhxaM8YYUtRM1QNrIQITD8\u002BRuTiSfZipFJFnBjrHKBXA0nKUC7mGCrn2VIqsKm0gfI9BbwopcEcGwfz3FfMUy7mGcxn8WLIOi3e06bxCUzh58s1vr1Q4btfK5z5rcJPf87jFbxXnCpeDCeGGIjE\u002BqyFVV3kPBjG7/80\u002BH6\u002BxJmFEmdrJX65XEM8eAFREAET8N7a/\u002B\u002BAQFXQdjZqQDafmAFOFNG49iJKZTGkshhyoxGyFArloW2lkR0TkyM7JiYpDI/fSiDx9RwLtjojszhz3xbXK/xw8QZRFOJcyOhIidnZtx498dmpc\u002B\u002Bf/OocWw990NnbJTCNa9qe6Ox/lxMD2uSGKniNU5h46F52DQ/wQDHDQFrxYcSVa/VOSOgfNC\u002BKFzjy5DbeOLCLV5/ZydH9O3lu73a8gPfgfFwiDJxT6kHEfBBxsx5SrYfcrK\u002BsQaBxcJG4S\u002BJe72betVhsAyLnqQUtFhoR9SCithj/3pZAxRCzuDOSDol9KvFlKGKoj7UCaDllvhFRC6KYKGjRaLre\u002BN1Jdt5x/sIfVKq19p0fT7Gatcnbvs50lx8kWGpRrYUstLNfCCKCPoLko795ZPteJTu26u062PTYsROjW4aHqvWQyAktpzgfW/Xq\u002BVP8fXK6f89dwf/5qMc\u002BgAHYjAAAAABJRU5ErkJggg==",
+              "WhenOpened": "2025-02-19T11:26:55.811Z",
               "EditorCaption": " [Design]"
             }
           ]

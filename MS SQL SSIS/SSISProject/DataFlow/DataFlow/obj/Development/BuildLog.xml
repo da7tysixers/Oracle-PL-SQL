@@ -2,15 +2,10 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>DataFlow</Name>
-    <LastWriteTime>2025-02-19T02:58:44.7000133Z</LastWriteTime>
+    <LastWriteTime>2025-02-19T13:03:04.4076352Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
-    <ProjectBuildItemInfo>
-      <Name>Package.dtsx</Name>
-      <LastWriteTime>2025-01-29T21:13:20.8162401Z</LastWriteTime>
-      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
-    </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Package1.dtsx</Name>
       <LastWriteTime>2025-01-29T21:34:55.9182563Z</LastWriteTime>
@@ -82,8 +77,28 @@
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
-      <Name>13_ImportColumn.dtsx</Name>
-      <LastWriteTime>2025-02-19T02:58:42.3638146Z</LastWriteTime>
+      <Name>15_Merge.dtsx</Name>
+      <LastWriteTime>2025-02-19T10:35:32.0522031Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>14_ImportColumn.dtsx</Name>
+      <LastWriteTime>2025-02-19T10:26:40.5602155Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>16_MergeJoin.dtsx</Name>
+      <LastWriteTime>2025-02-19T10:54:40.253442Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>17_Lookup.dtsx</Name>
+      <LastWriteTime>2025-02-19T11:58:16.7011984Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>CacheTransformation.dtsx</Name>
+      <LastWriteTime>2025-02-19T13:03:02.7376333Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
